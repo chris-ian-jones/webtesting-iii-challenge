@@ -79,7 +79,7 @@ describe('<Display />', () => {
     )
 
     const lockedDiv = getByText(/^Locked$/i)
-    expect(lockedDiv.closest('div')).toHaveClass('led red-led');
+    expect(lockedDiv).toHaveClass('led red-led');
   })
 })
 
@@ -91,7 +91,7 @@ describe('<Display />', () => {
     )
 
     const closedDiv = getByText(/^Closed$/i)
-    expect(closedDiv.closest('div')).toHaveClass('led red-led');
+    expect(closedDiv).toHaveClass('led red-led');
   })
 })
 
@@ -103,7 +103,7 @@ describe('<Display />', () => {
     )
 
     const unlockedDiv = getByText(/^Unlocked$/i)
-    expect(unlockedDiv.closest('div')).toHaveClass('led green-led');
+    expect(unlockedDiv).toHaveClass('led green-led');
   })
 })
 
@@ -115,6 +115,6 @@ describe('<Display />', () => {
     )
 
     const openDiv = getByText(/^Open$/i)
-    expect(openDiv.closest('div')).toHaveClass('led green-led');
+    expect(openDiv).toHaveClass('led green-led');
   })
 })

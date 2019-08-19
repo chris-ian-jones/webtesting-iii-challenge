@@ -34,7 +34,7 @@ describe('<Controls />', () => {
     )
 
     const closeButton = getByText(/^Close Gate$/i)
-    expect(closeButton.closest('button')).toBeTrue;
+    expect(closeButton).toBeTrue;
   })
 })
 
@@ -49,7 +49,7 @@ describe('<Controls />', () => {
     fireEvent.click(closeButton)
 
     const lockButton = getByText(/^Lock Gate$/i)
-    expect(lockButton.closest('button')).toBeTrue;
+    expect(lockButton).toBeTrue;
   })
 })
 
@@ -105,7 +105,7 @@ describe('<Controls />', () => {
     )
 
     const closeButton = getByText(/^Close Gate$/i)
-    expect(closeButton.closest('button')).toHaveAttribute('disabled');
+    expect(closeButton).toHaveAttribute('disabled');
   })
 })
 
@@ -117,6 +117,6 @@ describe('<Controls />', () => {
     )
 
     const lockButton = getByText(/^Lock Gate$/i)
-    expect(lockButton.closest('button')).toHaveAttribute('disabled');
+    expect(lockButton).toHaveAttribute('disabled');
   })
 })
