@@ -55,3 +55,47 @@ describe('<Controls />', () => {
     expect(lockButton.closest('button')).toBeTrue;
   })
 })
+
+// close button text changes to reflect the state the door will be in if clicked
+
+// tests if mock function is called on a click
+describe('<Controls />', () => {
+  it('tests if toggleClosed / mock function is called on a click', () => {
+    const mockFunction = jest.fn()
+    const { getByText } = render(
+      <Controls toggleClosed= {mockFunction} />
+    )
+
+    const closeButton = getByText(/^Close Gate$/i)
+    
+    fireEvent.click(closeButton)
+    
+    expect(mockFunction).toHaveBeenCalled();
+  })
+})
+
+// tests if button text is Open Gate when closed is true
+describe('<Controls />', () => {
+  it('tests if button text is Open Gate when closed is true', () => {
+    const { getByText } = render(
+      <Controls closed= {true} />
+    )
+
+    const openButton = getByText(/^Open Gate$/i)
+    
+    expect(openButton).toHaveTextContent(/^Open Gate$/i)
+  })
+})
+
+// tests if button text is Close Gate when closed is false
+describe('<Controls />', () => {
+  it('tests if button text is Close Gate when closed is false', () => {
+    const { getByText } = render(
+      <Controls closed= {false} />
+    )
+
+    const closeButton = getByText(/^Close Gate$/i)
+    
+    expect(closeButton).toHaveTextContent(/^Close Gate$/i)
+  })
+})
