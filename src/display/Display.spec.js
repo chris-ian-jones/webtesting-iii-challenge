@@ -11,3 +11,15 @@ describe('<Display />', () => {
     expect(tree.toJSON()).toMatchSnapshot();
   })
 })
+
+describe('<Display />', () => {
+  it('defaults to unlocked and open', () => {
+    const { getByText } = render(<Display />)
+
+    const unlocked = getByText(/^unlocked$/i)
+    const open = getByText(/open/i)
+    
+    expect(unlocked).toBeTrue
+    expect(open).toBeTrue
+  })
+})
