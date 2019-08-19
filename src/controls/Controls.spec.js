@@ -19,8 +19,8 @@ describe('<Controls />', () => {
   it('cannot be closed or opened if it is locked', () => {
     const { getByText } = render(
       <Controls 
-      locked='locked'
-      closed='closed'
+      locked= {true}
+      closed= {true}
       />
     )
 
