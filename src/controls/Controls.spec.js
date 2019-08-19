@@ -18,10 +18,7 @@ describe('<Controls />', () => {
 describe('<Controls />', () => {
   it('cannot be closed or opened if it is locked', () => {
     const { getByText } = render(
-      <Controls 
-      locked= {true}
-      closed= {true}
-      />
+      <Controls locked= {true} closed= {true} />
     )
 
     const openGate = getByText(/^Open Gate$/i)
@@ -104,9 +101,7 @@ describe('<Controls />', () => {
 describe('<Controls />', () => {
   it('the closed toggle button is disabled if the gate is locked', () => {
     const { getByText } = render(
-      <Controls 
-      locked= {true}
-      />
+      <Controls locked= {true} />
     )
 
     const closeButton = getByText(/^Close Gate$/i)
@@ -118,9 +113,7 @@ describe('<Controls />', () => {
 describe('<Controls />', () => {
   it('the locked toggle button is disabled if the gate is open', () => {
     const { getByText } = render(
-      <Controls 
-      closed= {false}
-      />
+      <Controls closed= {false} />
     )
 
     const lockButton = getByText(/^Lock Gate$/i)
