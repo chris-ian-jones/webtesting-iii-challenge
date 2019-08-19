@@ -106,3 +106,31 @@ describe('<Display />', () => {
     expect(closedDiv.closest('div')).toHaveClass('led red-led');
   })
 })
+
+// when unlocked use the green-led class
+describe('<Display />', () => {
+  it('when unlocked use the green-led class', () => {
+    const { getByText } = render(
+      <Display 
+      locked= {false}
+      />
+    )
+
+    const unlockedDiv = getByText(/^Unlocked$/i)
+    expect(unlockedDiv.closest('div')).toHaveClass('led green-led');
+  })
+})
+
+// when open use the green-led class
+describe('<Display />', () => {
+  it('when open use the green-led class', () => {
+    const { getByText } = render(
+      <Display 
+      closed= {false}
+      />
+    )
+
+    const openDiv = getByText(/^Open$/i)
+    expect(openDiv.closest('div')).toHaveClass('led green-led');
+  })
+})
