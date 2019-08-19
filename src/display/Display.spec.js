@@ -31,7 +31,7 @@ describe('<Display />', () => {
   it("displays 'Closed' if the closed prop is true", () => {
     const { getByText } = render(
       <Display 
-        closed='closed'
+        closed={true}
       />
     )
     const closed = getByText(/^Closed$/i)
@@ -44,10 +44,36 @@ describe('<Display />', () => {
   it("displays 'Open' if the closed prop is false", () => {
     const { getByText } = render(
       <Display 
-        closed= {!'closed'}
+        closed= {!true}
       />
     )
     const open = getByText(/^Open$/i)
     expect(open).toBeTrue
+  })
+})
+
+// displays 'Locked' if the locked prop is true
+describe('<Display />', () => {
+  it("displays 'Locked' if the locked prop is true", () => {
+    const { getByText } = render(
+      <Display 
+        locked= {true}
+      />
+    )
+    const locked = getByText(/^Locked$/i)
+    expect(locked).toBeTrue
+  })
+})
+
+// displays 'Unlocked' if the locked prop is !true
+describe('<Display />', () => {
+  it("displays 'Unlocked' if the locked prop is true", () => {
+    const { getByText } = render(
+      <Display 
+        locked= {!true}
+      />
+    )
+    const unlocked = getByText(/^Unlocked$/i)
+    expect(unlocked).toBeTrue
   })
 })
