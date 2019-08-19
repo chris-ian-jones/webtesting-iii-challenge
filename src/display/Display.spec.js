@@ -4,6 +4,7 @@ import { render } from '@testing-library/react'
 
 import Display from './Display'
 
+// shows the display
 describe('<Display />', () => {
   it('matches snapshot', () => {
     const tree = renderer.create(<Display />); 
@@ -12,6 +13,7 @@ describe('<Display />', () => {
   })
 })
 
+// defaults to unlocked and open
 describe('<Display />', () => {
   it('defaults to unlocked and open', () => {
     const { getByText } = render(<Display />)
