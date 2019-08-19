@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer'; 
-import { render } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import 'jest-dom/extend-expect'
 
 import Controls from './Controls'
@@ -26,5 +26,32 @@ describe('<Controls />', () => {
 
     const openGate = getByText(/^Open Gate$/i)
     expect(openGate.closest('button')).toHaveAttribute('disabled');
+  })
+})
+
+// provide button to toggle the closed state
+describe('<Controls />', () => {
+  it('provide button to toggle the closed state', () => {
+    const { getByText } = render(
+      <Controls />
+    )
+
+    const closeButton = getByText(/^Close Gate$/i)
+    expect(closeButton.closest('button')).toBeTrue;
+  })
+})
+
+// provide button to toggle the locked state
+describe('<Controls />', () => {
+  it('provide button to toggle the locked state', () => {
+    const { getByText } = render(
+      <Controls />
+    )
+
+    const closeButton = getByText(/^Close Gate$/i)
+    fireEvent.click(closeButton)
+
+    const lockButton = getByText(/^Lock Gate$/i)
+    expect(lockButton.closest('button')).toBeTrue;
   })
 })
