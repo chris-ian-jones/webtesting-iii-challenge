@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer'; 
 import { render } from '@testing-library/react'
+import 'jest-dom/extend-expect'
 
 import Display from './Display'
 
@@ -75,5 +76,33 @@ describe('<Display />', () => {
     )
     const unlocked = getByText(/^Unlocked$/i)
     expect(unlocked).toBeTrue
+  })
+})
+
+// when locked use the red-led class
+describe('<Display />', () => {
+  it('when locked use the red-led class', () => {
+    const { getByText } = render(
+      <Display 
+      locked= {true}
+      />
+    )
+
+    const lockedDiv = getByText(/^Locked$/i)
+    expect(lockedDiv.closest('div')).toHaveClass('led red-led');
+  })
+})
+
+// when closed use the red-led class
+describe('<Display />', () => {
+  it('when closed use the red-led class', () => {
+    const { getByText } = render(
+      <Display 
+      closed= {true}
+      />
+    )
+
+    const closedDiv = getByText(/^Closed$/i)
+    expect(closedDiv.closest('div')).toHaveClass('led red-led');
   })
 })
