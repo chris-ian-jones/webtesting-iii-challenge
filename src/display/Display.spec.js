@@ -25,3 +25,29 @@ describe('<Display />', () => {
     expect(open).toBeTrue
   })
 })
+
+// displays 'Closed' if the closed prop is true
+describe('<Display />', () => {
+  it("displays 'Closed' if the closed prop is true", () => {
+    const { getByText } = render(
+      <Display 
+        closed='closed'
+      />
+    )
+    const closed = getByText(/^Closed$/i)
+    expect(closed).toBeTrue
+  })
+})
+
+// displays 'Open' if the closed prop is !true
+describe('<Display />', () => {
+  it("displays 'Open' if the closed prop is false", () => {
+    const { getByText } = render(
+      <Display 
+        closed= {!'closed'}
+      />
+    )
+    const open = getByText(/^Open$/i)
+    expect(open).toBeTrue
+  })
+})
