@@ -31,9 +31,7 @@ describe('<Display />', () => {
 describe('<Display />', () => {
   it("displays 'Closed' if the closed prop is true", () => {
     const { getByText } = render(
-      <Display 
-        closed={true}
-      />
+      <Display closed={true} />
     )
     const closed = getByText(/^Closed$/i)
     expect(closed).toBeTrue
@@ -44,9 +42,7 @@ describe('<Display />', () => {
 describe('<Display />', () => {
   it("displays 'Open' if the closed prop is false", () => {
     const { getByText } = render(
-      <Display 
-        closed= {!true}
-      />
+      <Display closed= {!true} />
     )
     const open = getByText(/^Open$/i)
     expect(open).toBeTrue
@@ -57,9 +53,7 @@ describe('<Display />', () => {
 describe('<Display />', () => {
   it("displays 'Locked' if the locked prop is true", () => {
     const { getByText } = render(
-      <Display 
-        locked= {true}
-      />
+      <Display locked= {true} />
     )
     const locked = getByText(/^Locked$/i)
     expect(locked).toBeTrue
@@ -70,9 +64,7 @@ describe('<Display />', () => {
 describe('<Display />', () => {
   it("displays 'Unlocked' if the locked prop is true", () => {
     const { getByText } = render(
-      <Display 
-        locked= {!true}
-      />
+      <Display locked= {!true} />
     )
     const unlocked = getByText(/^Unlocked$/i)
     expect(unlocked).toBeTrue
@@ -83,9 +75,7 @@ describe('<Display />', () => {
 describe('<Display />', () => {
   it('when locked use the red-led class', () => {
     const { getByText } = render(
-      <Display 
-      locked= {true}
-      />
+      <Display locked= {true} />
     )
 
     const lockedDiv = getByText(/^Locked$/i)
@@ -97,9 +87,7 @@ describe('<Display />', () => {
 describe('<Display />', () => {
   it('when closed use the red-led class', () => {
     const { getByText } = render(
-      <Display 
-      closed= {true}
-      />
+      <Display closed= {true} />
     )
 
     const closedDiv = getByText(/^Closed$/i)
@@ -111,9 +99,7 @@ describe('<Display />', () => {
 describe('<Display />', () => {
   it('when unlocked use the green-led class', () => {
     const { getByText } = render(
-      <Display 
-      locked= {false}
-      />
+      <Display locked= {false} />
     )
 
     const unlockedDiv = getByText(/^Unlocked$/i)
@@ -125,9 +111,7 @@ describe('<Display />', () => {
 describe('<Display />', () => {
   it('when open use the green-led class', () => {
     const { getByText } = render(
-      <Display 
-      closed= {false}
-      />
+      <Display closed= {false} />
     )
 
     const openDiv = getByText(/^Open$/i)
